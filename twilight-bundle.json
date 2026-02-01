@@ -1,0 +1,165 @@
+{
+    "name": {
+        "ar": "Elezz-lands",
+        "en": "Elezz land"
+    },
+    "description": {
+        "ar": "",
+        "en": ""
+    },
+    "author_email": "yahia.ashraf@makaseb.sa",
+    "support_url": "",
+    "repository": "https://github.com/yahiaashraf222/tw-elezz-land",
+    "components": [
+        {
+            "title": "Custom HTML",
+            "icon": "sicon-code",
+            "name": "customhtml",
+            "key": "c3e8e447-1a31-43fb-b5c9-be0eb64b016c",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "label": "Title",
+                    "value": "Custom HTML"
+                },
+                {
+                    "id": "html_code",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "HTML Code",
+                    "placeholder": "<div>Your HTML here</div>"
+                },
+                {
+                    "id": "css_code",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "CSS Code",
+                    "placeholder": ".my-class { color: red; }"
+                },
+                {
+                    "id": "js_code",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "JavaScript Code",
+                    "placeholder": "console.log('Hello');"
+                }
+            ]
+        },
+        {
+            "title": "Featured Product Overlap",
+            "icon": "sicon-layout-grid",
+            "name": "featured-product-overlap",
+            "key": "f9a8d0a8-7b8c-4031-af5f-253e4922bf09",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                {
+                    "id": "top_bg_color",
+                    "type": "string",
+                    "label": "Top Background Color",
+                    "format": "color",
+                    "value": "#ffffff"
+                },
+                {
+                    "id": "bottom_bg_color",
+                    "type": "string",
+                    "label": "Bottom Background Color",
+                    "format": "color",
+                    "value": "#fdf8f5"
+                },
+                {
+                    "id": "bottom_height_percent",
+                    "type": "number",
+                    "label": "Bottom Height Percentage",
+                    "value": 40
+                },
+                {
+                    "id": "product_image",
+                    "type": "string",
+                    "label": "Product Image",
+                    "format": "image"
+                },
+                {
+                    "id": "main_title",
+                    "type": "string",
+                    "label": "Main Title",
+                    "value": "هيرش لهب رائحة لها هيبتها"
+                },
+                {
+                    "id": "title_gradient_start",
+                    "type": "string",
+                    "label": "Title Gradient Start Color",
+                    "format": "color",
+                    "value": "#8b4513"
+                },
+                {
+                    "id": "title_gradient_end",
+                    "type": "string",
+                    "label": "Title Gradient End Color",
+                    "format": "color",
+                    "value": "#cd853f"
+                },
+                 {
+                    "id": "title_font_size",
+                    "type": "number",
+                    "label": "Title Font Size (px)",
+                    "value": 36
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "label": "Subtitle",
+                    "value": "بخة وحدة تكفي والباقي يصير حكاية"
+                },
+                 {
+                    "id": "subtitle_color",
+                    "type": "string",
+                    "label": "Subtitle Color",
+                    "format": "color",
+                    "value": "#5c3a21"
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "label": "Description",
+                    "format": "textarea",
+                    "value": "عطر أروماتك شرقي، ناعم، فخم ومتوازن - بحجم 100 مل، مصمم لعشاق التفرد. يفتتح العطر بنفحات خضراء منعشة من الريحان ونجيل الهند، يتداخل معها الفلفل الأسود الدافئ، ثم ينتقل لقلب مشرق من الجريب فروت، ويستقر على قاعدة غنية من الباتشولي الفاخر."
+                },
+                 {
+                    "id": "description_color",
+                    "type": "string",
+                    "label": "Description Color",
+                    "format": "color",
+                    "value": "#333333"
+                },
+                {
+                    "id": "btn_text",
+                    "type": "string",
+                    "label": "Button Text",
+                    "value": "عطر جوكر لكل الفصول ولكل اللحظات"
+                },
+                {
+                    "id": "btn_link",
+                    "type": "string",
+                    "label": "Button Link",
+                    "value": "#"
+                },
+                {
+                    "id": "btn_bg_color",
+                    "type": "string",
+                    "label": "Button Background Color",
+                    "format": "color",
+                    "value": "#000000"
+                },
+                {
+                    "id": "btn_text_color",
+                    "type": "string",
+                    "label": "Button Text Color",
+                    "format": "color",
+                    "value": "#ffffff"
+                }
+            ]
+        }
+    ]
+}

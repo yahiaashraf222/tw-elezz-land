@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salla Component Dev</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; text-align: center; }
+        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        .error { color: red; margin-top: 20px; }
+        .success { color: green; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Salla Component Development</h1>
+    <p>The development server is running.</p>
+    
+    <div id="status">Checking component availability...</div>
+
+    <a href="/node_modules/.salla-temp/index.html" class="btn">Open Component Preview</a>
+
+    <script>
+        // Check if the demo page exists
+        fetch('/node_modules/.salla-temp/index.html')
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('status').innerHTML = '<p class="success">Preview page found!</p>';
+                    // Auto redirect after 1 second
+                    setTimeout(() => {
+                        window.location.href = '/node_modules/.salla-temp/index.html';
+                    }, 1000);
+                } else {
+                    document.getElementById('status').innerHTML = '<p class="error">Preview page not found (404). The plugin might not have generated it yet.</p>';
+                }
+            })
+            .catch(err => {
+                document.getElementById('status').innerHTML = '<p class="error">Error checking preview: ' + err.message + '</p>';
+            });
+    </script>
+</body>
+</html>
