@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 export interface FeatureItem {
   icon_url?: string;
@@ -17,6 +17,15 @@ export interface FeatureItem {
 export default class StoreFeatures extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
+
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -95,7 +104,7 @@ export default class StoreFeatures extends LitElement {
       <div class="store-features-box">
         ${sectionTitle ? html`<div class="section-title" style="${titleGradient || "color: #000"}">${sectionTitle}</div>` : ""}
         ${this.features.map((f) => {
-          const iconUrl = sanitizeImageUrl(f.icon_url);
+          const iconUrl = getImageUrlFromConfig(f.icon_url);
           return html`
             <div class="feature-row">
               <div class="feature-icon-wrapper">

@@ -7,6 +7,15 @@ export default class Customhtml extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
+
   static styles = css`
     :host {
       display: block;

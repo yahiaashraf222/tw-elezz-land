@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 export interface IngredientNote {
   image_url?: string;
@@ -20,6 +20,15 @@ export interface PerfumeCardData {
 export default class PerfumeIngredients extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
+
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -177,7 +186,7 @@ export default class PerfumeIngredients extends LitElement {
 
   private renderIngredient(img: string | undefined, name: string): ReturnType<typeof html> {
     if (!name) return html``;
-    const safeUrl = sanitizeImageUrl(img);
+    const safeUrl = getImageUrlFromConfig(img) || sanitizeImageUrl(img);
     return html`
       <div class="ingredient-item">
         ${safeUrl ? html`<img src="${safeUrl}" alt="${name}" class="ingredient-img" loading="lazy" decoding="async" />` : ""}

@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { CartController, resolveProductId } from "../../controllers/cart-controller.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight landing hero: image, title, subtitle, description, CTA (buy now).
@@ -12,7 +12,16 @@ export default class LandingHero extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
   private cart = new CartController(this);
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -142,7 +151,7 @@ export default class LandingHero extends LitElement {
     const subtitle = String(this.config?.subtitle ?? "بخّة وحدة تكفي والباقي يصير حكاية");
     const description = String(this.config?.description ?? "");
     const ctaText = String(this.config?.button_text ?? "عطر جوكر لكل الفصول ولكل اللحظات");
-    const imageUrl = sanitizeImageUrl(this.config?.image_url ?? "");
+    const imageUrl = getImageUrlFromConfig(this.config?.image_url) || "";
 
     return html`
       <div class="custom-hero-section">

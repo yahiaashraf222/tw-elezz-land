@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { CartController, resolveProductId } from "../../controllers/cart-controller.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight sticky add-to-cart bar: product image, title, price, buy now button.
@@ -12,10 +12,19 @@ export default class StickyAtcBar extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
   @property({ type: Boolean, reflect: true })
   hidden = false;
 
   private cart = new CartController(this);
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -124,7 +133,7 @@ export default class StickyAtcBar extends LitElement {
   render() {
     const title = String(this.config?.title ?? "المنتج");
     const price = String(this.config?.price ?? "199 ر.س");
-    const imageUrl = sanitizeImageUrl(this.config?.image_url ?? "");
+    const imageUrl = getImageUrlFromConfig(this.config?.image_url) || "";
     const buttonText = String(this.config?.button_text ?? "اشتري الآن");
 
     return html`

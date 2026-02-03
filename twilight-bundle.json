@@ -51,12 +51,12 @@
                 { "id": "perfume_card_title_gradient_enabled", "type": "boolean", "label": "Perfume Card Title Gradient", "value": false },
                 { "id": "perfume_card_title_gradient_from_color", "type": "string", "format": "color", "label": "Card Title Gradient From", "value": "#8b6914" },
                 { "id": "perfume_card_title_gradient_to_color", "type": "string", "format": "color", "label": "Card Title Gradient To", "value": "#c9a227" },
-                { "id": "perfume_cards", "type": "collection", "format": "collection", "label": "Perfume Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "string", "format": "textarea", "label": "Sections (JSON: [{ \"section_title\": \"...\", \"ingredients\": [{\"image_url\": \"...\", \"name\": \"...\"}] }])" } ] },
+                { "id": "perfume_cards", "type": "collection", "format": "collection", "label": "Perfume Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "collection", "format": "collection", "label": "Sections", "fields": [ { "id": "section_title", "type": "string", "label": "Section title" }, { "id": "ingredients", "type": "collection", "format": "collection", "label": "Ingredients", "fields": [ { "id": "image_url", "type": "string", "format": "image", "label": "Image" }, { "id": "name", "type": "string", "label": "Name" } ] } ] } ] },
                 { "id": "expert_banner_image", "type": "string", "format": "image", "label": "Expert Banner Image", "value": "https://i.ibb.co/nsc58ssG/Untitled-3.png" },
                 { "id": "expert_title_gradient_enabled", "type": "boolean", "label": "Expert Title Gradient", "value": false },
                 { "id": "expert_title_gradient_from_color", "type": "string", "format": "color", "label": "Expert Gradient From", "value": "#8b6914" },
                 { "id": "expert_title_gradient_to_color", "type": "string", "format": "color", "label": "Expert Gradient To", "value": "#c9a227" },
-                { "id": "expert_cards", "type": "collection", "format": "collection", "label": "Expert Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "string", "format": "textarea", "label": "Paragraphs (one per line or JSON array)" }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
+                { "id": "expert_cards", "type": "collection", "format": "collection", "label": "Expert Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "collection", "format": "collection", "label": "Paragraphs", "fields": [ { "id": "text", "type": "string", "format": "textarea", "label": "Paragraph text" } ] }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
                 { "id": "atc_button_text", "type": "string", "label": "Buy Button Text", "value": "اشتري الآن" },
                 { "id": "atc_quantity_label", "type": "string", "label": "Quantity Label", "value": "الكمية" }
             ]
@@ -117,7 +117,7 @@
             "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
             "fields": [
                 { "id": "title", "type": "string", "label": "Section Title", "value": "مكونات العطر" },
-                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "string", "format": "textarea", "label": "Sections (JSON: [{ \"section_title\": \"...\", \"ingredients\": [{\"image_url\": \"...\", \"name\": \"...\"}] }])" } ] },
+                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "collection", "format": "collection", "label": "Sections", "fields": [ { "id": "section_title", "type": "string", "label": "Section title" }, { "id": "ingredients", "type": "collection", "format": "collection", "label": "Ingredients", "fields": [ { "id": "image_url", "type": "string", "format": "image", "label": "Image" }, { "id": "name", "type": "string", "label": "Name" } ] } ] } ] },
                 { "id": "section_title_gradient_enabled", "type": "boolean", "label": "Section Title Gradient", "value": false },
                 { "id": "section_title_gradient_from_color", "type": "string", "format": "color", "label": "Section Gradient From", "value": "#8b6914" },
                 { "id": "section_title_gradient_to_color", "type": "string", "format": "color", "label": "Section Gradient To", "value": "#c9a227" },
@@ -145,7 +145,7 @@
             "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
             "fields": [
                 { "id": "banner_image", "type": "string", "format": "image", "label": "Banner Image", "value": "https://i.ibb.co/nsc58ssG/Untitled-3.png" },
-                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "string", "format": "textarea", "label": "Paragraphs (one per line or JSON array)" }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
+                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "collection", "format": "collection", "label": "Paragraphs", "fields": [ { "id": "text", "type": "string", "format": "textarea", "label": "Paragraph text" } ] }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
                 { "id": "expert_title_gradient_enabled", "type": "boolean", "label": "Card Title Gradient", "value": false },
                 { "id": "expert_title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
                 { "id": "expert_title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
@@ -182,7 +182,7 @@
                 { "id": "subtitle", "type": "string", "label": "Subtitle", "value": "بخّة وحدة تكفي والباقي يصير حكاية" },
                 { "id": "description", "type": "string", "format": "textarea", "label": "Description" },
                 { "id": "button_text", "type": "string", "label": "Button Text", "value": "عطر جوكر لكل الفصول ولكل اللحظات" },
-                { "id": "image_url", "type": "string", "format": "image", "label": "Hero Image" },
+                { "id": "image_url", "type": "string", "format": "image", "label": "Hero Image", "value": "https://i.ibb.co/B5JZqC0F/19.png" },
                 { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
                 { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
                 { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },

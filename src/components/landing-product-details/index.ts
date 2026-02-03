@@ -1,18 +1,27 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight landing product details: image slot, title, subtitle, price, discount bar, features list.
- * Display only; use with add-to-cart-actions or fast-checkout-block for buy. Config: title, subtitle, current_price, old_price, save_label, tax_label, features (array/JSON).
+ * Display only; use with add-to-cart-actions or fast-checkout-block for buy. Config: title, subtitle, current_price, old_price, save_label, tax_label, features (collection).
  */
 export default class LandingProductDetails extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
   private _featuresRaw: unknown;
   private _featuresCache: Array<{ icon: string; text: string }> | null = null;
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -191,7 +200,7 @@ export default class LandingProductDetails extends LitElement {
     const taxLabel = String(this.config?.tax_label ?? "السعر شامل الضريبة");
     const priceLabel = String(this.config?.price_label ?? "فقط - بدلاً من");
     const features = this.parseFeatures();
-    const imageUrl = sanitizeImageUrl(this.config?.image_url ?? "");
+    const imageUrl = getImageUrlFromConfig(this.config?.image_url) || "";
     const titleGradient = getTitleGradientStyle(this.config, "title_");
 
     return html`

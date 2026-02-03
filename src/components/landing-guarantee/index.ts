@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { CartController, resolveProductId } from "../../controllers/cart-controller.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight landing guarantee: header, subtitle, description, feature icons, CTA (buy now).
@@ -12,7 +12,16 @@ export default class LandingGuarantee extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
   private cart = new CartController(this);
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -208,7 +217,7 @@ export default class LandingGuarantee extends LitElement {
     const subtitleHighlight = String(this.config?.subtitle_highlight ?? "محد مـــدحك؟");
     const desc = String(this.config?.description ?? "رجّع العطر مجانًا بدون أي تكلفة داخل السعودية..");
     const ctaText = String(this.config?.button_text ?? "نثق في عطونا ونثق بذوقــك");
-    const headerIconUrl = sanitizeImageUrl(this.config?.header_icon_url ?? "");
+    const headerIconUrl = getImageUrlFromConfig(this.config?.header_icon_url) || "";
     const features = this.parseFeatures();
 
     return html`
@@ -222,7 +231,7 @@ export default class LandingGuarantee extends LitElement {
           <p class="guarantee-desc">${desc}</p>
           <div class="guarantee-features">
             ${features.map((f) => {
-              const iconUrl = sanitizeImageUrl(f.icon_url);
+              const iconUrl = getImageUrlFromConfig(f.icon_url);
               return html`<div class="guarantee-feature">
                 ${iconUrl ? html`<img src="${iconUrl}" alt="" loading="lazy" decoding="async" />` : ""}
                 <span class="guarantee-feature-text" style="white-space: pre-line;">${f.text}</span>

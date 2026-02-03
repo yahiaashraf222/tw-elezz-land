@@ -39,6 +39,21 @@ export function sanitizeImageUrl(url: string | null | undefined): string {
 }
 
 /**
+ * Normalizes Salla image control value to a URL string.
+ * Salla may pass { url: string } (media picker) or a plain URL string. Returns sanitized URL or "".
+ */
+export function getImageUrlFromConfig(
+  value: string | { url?: string } | null | undefined
+): string {
+  if (value == null) return "";
+  if (typeof value === "string") return sanitizeImageUrl(value);
+  if (typeof value === "object" && value && "url" in value && typeof (value as { url?: string }).url === "string") {
+    return sanitizeImageUrl((value as { url: string }).url);
+  }
+  return "";
+}
+
+/**
  * Strips script tags and event-handler-like attributes from HTML for safer display.
  * Use for customhtml when you want to reduce XSS; does not allow full arbitrary HTML.
  */

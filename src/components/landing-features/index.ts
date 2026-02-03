@@ -1,18 +1,27 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight landing features: title, list of feature items, center image.
- * Config: title, feature_items (array or JSON string), image_url.
+ * Config: title, feature_items (collection), image_url.
  */
 export default class LandingFeatures extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
 
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
   private _featureItemsRaw: unknown;
   private _featureItemsCache: string[] | null = null;
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -159,7 +168,7 @@ export default class LandingFeatures extends LitElement {
     const mid = Math.ceil(items.length / 2);
     const rightItems = items.slice(0, mid);
     const leftItems = items.slice(mid);
-    const imageUrl = sanitizeImageUrl(this.config?.image_url ?? "");
+    const imageUrl = getImageUrlFromConfig(this.config?.image_url) || "";
 
     return html`
       <div class="features-section">

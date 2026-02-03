@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { getTitleGradientStyle } from "../../utils/gradient-title.js";
-import { sanitizeImageUrl } from "../../utils/sanitize.js";
+import { getImageUrlFromConfig, sanitizeImageUrl } from "../../utils/sanitize.js";
 
 /**
  * Salla Twilight component: expert section with banner and cards.
@@ -10,6 +10,15 @@ import { sanitizeImageUrl } from "../../utils/sanitize.js";
 export default class ExpertSection extends LitElement {
   @property({ type: Object })
   config?: Record<string, unknown>;
+
+  set state(value: Record<string, unknown> | undefined) {
+    this.config = value;
+    this.requestUpdate();
+  }
+
+  static registerSallaComponent(tagName: string): void {
+    customElements.define(tagName, this);
+  }
 
   static styles = css`
     :host {
@@ -72,7 +81,7 @@ export default class ExpertSection extends LitElement {
   `;
 
   private get bannerImage(): string {
-    return sanitizeImageUrl(this.config?.banner_image ?? "https://i.ibb.co/nsc58ssG/Untitled-3.png");
+    return getImageUrlFromConfig(this.config?.banner_image) || sanitizeImageUrl("https://i.ibb.co/nsc58ssG/Untitled-3.png");
   }
 
   private get cards(): Array<{ title?: string; paragraphs?: string[]; highlight?: string }> {
@@ -81,15 +90,12 @@ export default class ExpertSection extends LitElement {
       return raw.map((item: unknown) => {
         const o = item as Record<string, unknown>;
         let paragraphs: string[] = [];
-        if (Array.isArray(o.paragraphs)) paragraphs = o.paragraphs.map((p) => String(p ?? ""));
-        else if (typeof o.paragraphs === "string" && o.paragraphs.trim()) {
-          try {
-            const parsed = JSON.parse(o.paragraphs) as unknown;
-            if (Array.isArray(parsed)) paragraphs = parsed.map((p) => String(p ?? ""));
-            else paragraphs = o.paragraphs.split(/\n/).map((s) => s.trim()).filter(Boolean);
-          } catch {
-            paragraphs = o.paragraphs.split(/\n/).map((s) => s.trim()).filter(Boolean);
-          }
+        if (Array.isArray(o.paragraphs)) {
+          paragraphs = o.paragraphs.map((p: unknown) =>
+            typeof p === "object" && p != null && "text" in p ? String((p as { text?: unknown }).text ?? "") : String(p ?? "")
+          );
+        } else if (typeof o.paragraphs === "string" && o.paragraphs.trim()) {
+          paragraphs = o.paragraphs.split(/\n/).map((s) => s.trim()).filter(Boolean);
         }
         return { title: o.title ?? "", paragraphs, highlight: o.highlight ?? "" };
       });
