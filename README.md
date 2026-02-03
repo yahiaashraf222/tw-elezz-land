@@ -239,6 +239,14 @@ Run `pnpm run dev` to start the development server. This will:
 2. Enable hot module reloading
 3. Provide a development environment for testing
 
+### Component preview (form builder)
+
+The demo uses Salla's form builder, which POSTs to a mock API. If that request fails (e.g. CORS), component preview may not update correctly. To fix:
+
+1. In one terminal, run the local mock: `pnpm run form-builder-mock` (starts on port 3131).
+2. In another terminal, run dev with the mock URL: `TWILIGHT_FORM_BUILDER_MOCK_BASE_URL=http://localhost:3131 pnpm run dev`.
+3. Open the demo page; the form builder will use the local mock and component preview should work.
+
 ## License
 
 MIT

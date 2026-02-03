@@ -18,147 +18,272 @@
             "key": "c3e8e447-1a31-43fb-b5c9-be0eb64b016c",
             "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
             "fields": [
-                {
-                    "id": "title",
-                    "type": "string",
-                    "label": "Title",
-                    "value": "Custom HTML"
-                },
-                {
-                    "id": "html_code",
-                    "type": "string",
-                    "format": "textarea",
-                    "label": "HTML Code",
-                    "placeholder": "<div>Your HTML here</div>"
-                },
-                {
-                    "id": "css_code",
-                    "type": "string",
-                    "format": "textarea",
-                    "label": "CSS Code",
-                    "placeholder": ".my-class { color: red; }"
-                },
-                {
-                    "id": "js_code",
-                    "type": "string",
-                    "format": "textarea",
-                    "label": "JavaScript Code",
-                    "placeholder": "console.log('Hello');"
-                }
+                { "id": "title", "type": "string", "label": "Title", "value": "Custom HTML" },
+                { "id": "html_code", "type": "string", "format": "textarea", "label": "HTML Code", "placeholder": "<div>Your HTML here</div>" },
+                { "id": "css_code", "type": "string", "format": "textarea", "label": "CSS Code", "placeholder": ".my-class { color: red; }" },
+                { "id": "js_code", "type": "string", "format": "textarea", "label": "JavaScript Code", "placeholder": "console.log('Hello');" }
             ]
         },
         {
-            "title": "Featured Product Overlap",
+            "title": "Product Section Block",
             "icon": "sicon-layout-grid",
-            "name": "featured-product-overlap",
-            "key": "f9a8d0a8-7b8c-4031-af5f-253e4922bf09",
+            "name": "product-section-block",
+            "key": "product-section-block-1",
             "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
             "fields": [
-                {
-                    "id": "top_bg_color",
-                    "type": "string",
-                    "label": "Top Background Color",
-                    "format": "color",
-                    "value": "#ffffff"
-                },
-                {
-                    "id": "bottom_bg_color",
-                    "type": "string",
-                    "label": "Bottom Background Color",
-                    "format": "color",
-                    "value": "#fdf8f5"
-                },
-                {
-                    "id": "bottom_height_percent",
-                    "type": "number",
-                    "label": "Bottom Height Percentage",
-                    "value": 40
-                },
-                {
-                    "id": "product_image",
-                    "type": "string",
-                    "label": "Product Image",
-                    "format": "image"
-                },
-                {
-                    "id": "main_title",
-                    "type": "string",
-                    "label": "Main Title",
-                    "value": "هيرش لهب رائحة لها هيبتها"
-                },
-                {
-                    "id": "title_gradient_start",
-                    "type": "string",
-                    "label": "Title Gradient Start Color",
-                    "format": "color",
-                    "value": "#8b4513"
-                },
-                {
-                    "id": "title_gradient_end",
-                    "type": "string",
-                    "label": "Title Gradient End Color",
-                    "format": "color",
-                    "value": "#cd853f"
-                },
-                 {
-                    "id": "title_font_size",
-                    "type": "number",
-                    "label": "Title Font Size (px)",
-                    "value": 36
-                },
-                {
-                    "id": "subtitle",
-                    "type": "string",
-                    "label": "Subtitle",
-                    "value": "بخة وحدة تكفي والباقي يصير حكاية"
-                },
-                 {
-                    "id": "subtitle_color",
-                    "type": "string",
-                    "label": "Subtitle Color",
-                    "format": "color",
-                    "value": "#5c3a21"
-                },
-                {
-                    "id": "description",
-                    "type": "string",
-                    "label": "Description",
-                    "format": "textarea",
-                    "value": "عطر أروماتك شرقي، ناعم، فخم ومتوازن - بحجم 100 مل، مصمم لعشاق التفرد. يفتتح العطر بنفحات خضراء منعشة من الريحان ونجيل الهند، يتداخل معها الفلفل الأسود الدافئ، ثم ينتقل لقلب مشرق من الجريب فروت، ويستقر على قاعدة غنية من الباتشولي الفاخر."
-                },
-                 {
-                    "id": "description_color",
-                    "type": "string",
-                    "label": "Description Color",
-                    "format": "color",
-                    "value": "#333333"
-                },
-                {
-                    "id": "btn_text",
-                    "type": "string",
-                    "label": "Button Text",
-                    "value": "عطر جوكر لكل الفصول ولكل اللحظات"
-                },
-                {
-                    "id": "btn_link",
-                    "type": "string",
-                    "label": "Button Link",
-                    "value": "#"
-                },
-                {
-                    "id": "btn_bg_color",
-                    "type": "string",
-                    "label": "Button Background Color",
-                    "format": "color",
-                    "value": "#000000"
-                },
-                {
-                    "id": "btn_text_color",
-                    "type": "string",
-                    "label": "Button Text Color",
-                    "format": "color",
-                    "value": "#ffffff"
-                }
+                { "id": "product_id", "type": "string", "label": "Product ID (empty = current product on product page)", "value": "2098668495" },
+                { "id": "desc_title", "type": "string", "label": "Description Title", "value": "للملوك شتاء خاص - رحلة في عالم النوادر بكج شتاء الملوك" },
+                { "id": "desc_text", "type": "string", "format": "textarea", "label": "Description Text" },
+                { "id": "desc_highlight", "type": "string", "format": "textarea", "label": "Description Highlight" },
+                { "id": "desc_title_gradient_enabled", "type": "boolean", "label": "Description Title Gradient", "value": false },
+                { "id": "desc_title_gradient_from_color", "type": "string", "format": "color", "label": "Desc Title Gradient From", "value": "#8b6914" },
+                { "id": "desc_title_gradient_to_color", "type": "string", "format": "color", "label": "Desc Title Gradient To", "value": "#c9a227" },
+                { "id": "desc_title_gradient_direction", "type": "string", "label": "Desc Title Gradient Direction", "value": "90deg" },
+                { "id": "current_price", "type": "number", "label": "Current Price", "value": 199 },
+                { "id": "old_price", "type": "number", "label": "Old Price", "value": 850 },
+                { "id": "save_amount", "type": "number", "label": "Saved Amount", "value": 651 },
+                { "id": "price_label", "type": "string", "label": "Price Label", "value": "بدلاً من" },
+                { "id": "ingredients_main_title", "type": "string", "label": "Ingredients Section Title", "value": "مكونات العطر" },
+                { "id": "ingredients_title_gradient_enabled", "type": "boolean", "label": "Ingredients Title Gradient", "value": false },
+                { "id": "ingredients_title_gradient_from_color", "type": "string", "format": "color", "label": "Ingredients Gradient From", "value": "#8b6914" },
+                { "id": "ingredients_title_gradient_to_color", "type": "string", "format": "color", "label": "Ingredients Gradient To", "value": "#c9a227" },
+                { "id": "ingredients_title_gradient_direction", "type": "string", "label": "Ingredients Gradient Direction", "value": "90deg" },
+                { "id": "perfume_card_title_gradient_enabled", "type": "boolean", "label": "Perfume Card Title Gradient", "value": false },
+                { "id": "perfume_card_title_gradient_from_color", "type": "string", "format": "color", "label": "Card Title Gradient From", "value": "#8b6914" },
+                { "id": "perfume_card_title_gradient_to_color", "type": "string", "format": "color", "label": "Card Title Gradient To", "value": "#c9a227" },
+                { "id": "perfume_cards", "type": "collection", "format": "collection", "label": "Perfume Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "string", "format": "textarea", "label": "Sections (JSON: [{ \"section_title\": \"...\", \"ingredients\": [{\"image_url\": \"...\", \"name\": \"...\"}] }])" } ] },
+                { "id": "expert_banner_image", "type": "string", "format": "image", "label": "Expert Banner Image", "value": "https://i.ibb.co/nsc58ssG/Untitled-3.png" },
+                { "id": "expert_title_gradient_enabled", "type": "boolean", "label": "Expert Title Gradient", "value": false },
+                { "id": "expert_title_gradient_from_color", "type": "string", "format": "color", "label": "Expert Gradient From", "value": "#8b6914" },
+                { "id": "expert_title_gradient_to_color", "type": "string", "format": "color", "label": "Expert Gradient To", "value": "#c9a227" },
+                { "id": "expert_cards", "type": "collection", "format": "collection", "label": "Expert Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "string", "format": "textarea", "label": "Paragraphs (one per line or JSON array)" }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
+                { "id": "atc_button_text", "type": "string", "label": "Buy Button Text", "value": "اشتري الآن" },
+                { "id": "atc_quantity_label", "type": "string", "label": "Quantity Label", "value": "الكمية" }
+            ]
+        },
+        {
+            "title": "Product Price Block",
+            "icon": "sicon-tag",
+            "name": "product-price-block",
+            "key": "product-price-block-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "current_price", "type": "number", "label": "Current Price", "value": 199 },
+                { "id": "old_price", "type": "number", "label": "Old Price", "value": 850 },
+                { "id": "save_amount", "type": "number", "label": "Saved Amount", "value": 651 },
+                { "id": "save_label", "type": "string", "label": "Save Label", "value": "وفر" },
+                { "id": "price_label_gradient_enabled", "type": "boolean", "label": "Save Badge Gradient", "value": false },
+                { "id": "price_label_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#c00" },
+                { "id": "price_label_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#a00" },
+                { "id": "price_label_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Store Features",
+            "icon": "sicon-layout-grid",
+            "name": "store-features",
+            "key": "store-features-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Section Title", "value": "مميزات المتجر" },
+                { "id": "features", "type": "collection", "format": "collection", "label": "Features", "fields": [ { "id": "icon_url", "type": "string", "format": "image", "label": "Icon URL" }, { "id": "icon", "type": "string", "label": "Icon (emoji/class if no URL)" }, { "id": "title", "type": "string", "label": "Title" }, { "id": "subtitle", "type": "string", "label": "Subtitle" } ] },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Product Description",
+            "icon": "sicon-format-text-alt",
+            "name": "product-description",
+            "key": "product-description-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Title", "value": "للملوك شتاء خاص - رحلة في عالم النوادر بكج شتاء الملوك" },
+                { "id": "description_text", "type": "string", "format": "textarea", "label": "Description" },
+                { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight Text" },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Perfume Ingredients",
+            "icon": "sicon-layout-grid",
+            "name": "perfume-ingredients",
+            "key": "perfume-ingredients-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Section Title", "value": "مكونات العطر" },
+                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "sections", "type": "string", "format": "textarea", "label": "Sections (JSON: [{ \"section_title\": \"...\", \"ingredients\": [{\"image_url\": \"...\", \"name\": \"...\"}] }])" } ] },
+                { "id": "section_title_gradient_enabled", "type": "boolean", "label": "Section Title Gradient", "value": false },
+                { "id": "section_title_gradient_from_color", "type": "string", "format": "color", "label": "Section Gradient From", "value": "#8b6914" },
+                { "id": "section_title_gradient_to_color", "type": "string", "format": "color", "label": "Section Gradient To", "value": "#c9a227" },
+                { "id": "card_title_gradient_enabled", "type": "boolean", "label": "Card Title Gradient", "value": false },
+                { "id": "card_title_gradient_from_color", "type": "string", "format": "color", "label": "Card Gradient From", "value": "#8b6914" },
+                { "id": "card_title_gradient_to_color", "type": "string", "format": "color", "label": "Card Gradient To", "value": "#c9a227" }
+            ]
+        },
+        {
+            "title": "Add to Cart Actions",
+            "icon": "sicon-cart",
+            "name": "add-to-cart-actions",
+            "key": "add-to-cart-actions-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "product_id", "type": "string", "label": "Product ID (leave empty on product page to use current product)", "value": "2098668495" },
+                { "id": "button_text", "type": "string", "label": "Button Text", "value": "اشتري الآن" }
+            ]
+        },
+        {
+            "title": "Expert Section",
+            "icon": "sicon-user",
+            "name": "expert-section",
+            "key": "expert-section-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "banner_image", "type": "string", "format": "image", "label": "Banner Image", "value": "https://i.ibb.co/nsc58ssG/Untitled-3.png" },
+                { "id": "cards", "type": "collection", "format": "collection", "label": "Cards", "fields": [ { "id": "title", "type": "string", "label": "Card title" }, { "id": "paragraphs", "type": "string", "format": "textarea", "label": "Paragraphs (one per line or JSON array)" }, { "id": "highlight", "type": "string", "format": "textarea", "label": "Highlight text" } ] },
+                { "id": "expert_title_gradient_enabled", "type": "boolean", "label": "Card Title Gradient", "value": false },
+                { "id": "expert_title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "expert_title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "expert_title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Video Testimonials",
+            "icon": "sicon-video",
+            "name": "video-testimonials",
+            "key": "video-testimonials-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Section Title", "value": "تجاربكم" },
+                { "id": "video_1_url", "type": "string", "label": "Video 1 URL", "value": "https://custom.makaseb.tools/n1.mp4" },
+                { "id": "video_2_url", "type": "string", "label": "Video 2 URL", "value": "https://custom.makaseb.tools/n2.mp4" },
+                { "id": "video_3_url", "type": "string", "label": "Video 3 URL", "value": "https://custom.makaseb.tools/n3.mp4" },
+                { "id": "video_4_url", "type": "string", "label": "Video 4 URL", "value": "https://custom.makaseb.tools/n4.mp4" },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Landing Hero",
+            "icon": "sicon-image",
+            "name": "landing-hero",
+            "key": "landing-hero-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "product_id", "type": "string", "label": "Product ID", "value": "2098668495" },
+                { "id": "title", "type": "string", "label": "Title", "value": "هـيـرش لهب رائحة لها هيبتــها" },
+                { "id": "subtitle", "type": "string", "label": "Subtitle", "value": "بخّة وحدة تكفي والباقي يصير حكاية" },
+                { "id": "description", "type": "string", "format": "textarea", "label": "Description" },
+                { "id": "button_text", "type": "string", "label": "Button Text", "value": "عطر جوكر لكل الفصول ولكل اللحظات" },
+                { "id": "image_url", "type": "string", "format": "image", "label": "Hero Image" },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Landing Features",
+            "icon": "sicon-layout-grid",
+            "name": "landing-features",
+            "key": "landing-features-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Section Title", "value": "ليش حصل هيرش لهب على أكثر من 1500 تقييم؟" },
+                { "id": "feature_items", "type": "collection", "format": "collection", "label": "Feature Items", "fields": [ { "id": "text", "type": "string", "label": "Item text" } ] },
+                { "id": "image_url", "type": "string", "format": "image", "label": "Center Image" },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Landing Guarantee",
+            "icon": "sicon-shield",
+            "name": "landing-guarantee",
+            "key": "landing-guarantee-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "product_id", "type": "string", "label": "Product ID", "value": "2098668495" },
+                { "id": "title", "type": "string", "label": "Title", "value": "ضمان ذهـــبي يريحك" },
+                { "id": "subtitle", "type": "string", "label": "Subtitle", "value": "مع العز، تجربتك مضمـــونة" },
+                { "id": "subtitle_highlight", "type": "string", "label": "Subtitle Highlight", "value": "محد مـــدحك؟" },
+                { "id": "description", "type": "string", "label": "Description", "value": "رجّع العطر مجانًا بدون أي تكلفة داخل السعودية.." },
+                { "id": "button_text", "type": "string", "label": "Button Text", "value": "نثق في عطونا ونثق بذوقــك" },
+                { "id": "header_icon_url", "type": "string", "format": "image", "label": "Header Icon" },
+                { "id": "guarantee_features", "type": "collection", "format": "collection", "label": "Features", "fields": [ { "id": "icon_url", "type": "string", "format": "image", "label": "Icon" }, { "id": "text", "type": "string", "format": "textarea", "label": "Text" } ] },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Landing Marquee",
+            "icon": "sicon-arrow-left-right",
+            "name": "landing-marquee",
+            "key": "landing-marquee-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "text", "type": "string", "label": "Marquee Text", "value": "باقي أيام قليلة وينتهي العرض" },
+                { "id": "dot_char", "type": "string", "label": "Dot Character", "value": "•" }
+            ]
+        },
+        {
+            "title": "Landing Product Details",
+            "icon": "sicon-tag",
+            "name": "landing-product-details",
+            "key": "landing-product-details-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "title", "type": "string", "label": "Title", "value": "لا تخلي أحد يوصفلك" },
+                { "id": "subtitle", "type": "string", "label": "Subtitle", "value": "جربه بنفسك" },
+                { "id": "current_price", "type": "number", "label": "Current Price", "value": 299 },
+                { "id": "old_price", "type": "number", "label": "Old Price", "value": 801 },
+                { "id": "save_label", "type": "string", "label": "Save Label", "value": "وفر 502 ريال الآن" },
+                { "id": "tax_label", "type": "string", "label": "Tax Label", "value": "السعر شامل الضريبة" },
+                { "id": "price_label", "type": "string", "label": "Price Label", "value": "فقط - بدلاً من" },
+                { "id": "image_url", "type": "string", "format": "image", "label": "Product Image" },
+                { "id": "features", "type": "collection", "format": "collection", "label": "Features", "fields": [ { "id": "icon", "type": "string", "label": "Icon (emoji or class)" }, { "id": "text", "type": "string", "label": "Text" } ] },
+                { "id": "title_gradient_enabled", "type": "boolean", "label": "Title Gradient", "value": false },
+                { "id": "title_gradient_from_color", "type": "string", "format": "color", "label": "Gradient From", "value": "#8b6914" },
+                { "id": "title_gradient_to_color", "type": "string", "format": "color", "label": "Gradient To", "value": "#c9a227" },
+                { "id": "title_gradient_direction", "type": "string", "label": "Gradient Direction", "value": "90deg" }
+            ]
+        },
+        {
+            "title": "Fast Checkout Block",
+            "icon": "sicon-cart",
+            "name": "fast-checkout-block",
+            "key": "fast-checkout-block-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "product_id", "type": "string", "label": "Product ID", "value": "2098668495" },
+                { "id": "button_text", "type": "string", "label": "Button Text", "value": "اشتري الآن" },
+                { "id": "quantity_label", "type": "string", "label": "Quantity Label", "value": "الكمية" },
+                { "id": "max_quantity", "type": "number", "label": "Max Quantity", "value": 10 }
+            ]
+        },
+        {
+            "title": "Sticky Add to Cart Bar",
+            "icon": "sicon-cart",
+            "name": "sticky-atc-bar",
+            "key": "sticky-atc-bar-1",
+            "image": "https://cdn.salla.network/images/themes/default/placeholder.jpg",
+            "fields": [
+                { "id": "product_id", "type": "string", "label": "Product ID", "value": "2098668495" },
+                { "id": "title", "type": "string", "label": "Product Title", "value": "بكج السبع معجزات" },
+                { "id": "price", "type": "string", "label": "Price Display", "value": "199 ر.س" },
+                { "id": "image_url", "type": "string", "format": "image", "label": "Product Image" },
+                { "id": "button_text", "type": "string", "label": "Button Text", "value": "اشتري الآن" }
             ]
         }
     ]

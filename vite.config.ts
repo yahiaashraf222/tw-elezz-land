@@ -22,7 +22,25 @@ const fixWindowsPathsPlugin = () => {
   };
 };
 
-/** Inject import map for "lit" so CDN twilight-bundles.js can resolve bare specifiers in the browser */
+/** Mock form-builder API so demo preview works without CORS (POST to same origin) */
+const formBuilderMockPlugin = () => ({
+  name: 'form-builder-mock',
+  configureServer(server) {
+    server.middlewares.use((req, res, next) => {
+      const url = req.url?.split('?')[0];
+      if (req.method !== 'POST' || url !== '/api/v1/form-builder-mock') return next();
+      let body = '';
+      req.on('data', (chunk: Buffer) => { body += chunk.toString(); });
+      req.on('end', () => {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 200;
+        res.end(JSON.stringify({ ok: true, data: body ? JSON.parse(body || '{}') : {} }));
+      });
+    });
+  }
+});
+
+/** Inject import map for "lit" and point form builder to local mock so preview works */
 const litImportMapPlugin = () => ({
   name: 'lit-import-map',
   enforce: 'pre' as const,
@@ -39,6 +57,13 @@ const litImportMapPlugin = () => ({
       {"imports":{"lit":"/node_modules/.vite/deps/lit.js","lit/decorators.js":"/node_modules/.vite/deps/lit_decorators__js.js"}}
     </script>`;
         html = html.replace(/(<head[^>]*>)/i, `$1${importMap}`);
+      }
+      // Point form builder to same-origin mock so POST succeeds and component preview works
+      if (html.includes('formBuilderMockUrl')) {
+        html = html.replace(
+          /window\.formBuilderMockUrl\s*=\s*'[^']*'/,
+          "window.formBuilderMockUrl = '/api/v1/form-builder-mock'"
+        );
       }
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.end(html);
@@ -57,6 +82,7 @@ export default defineConfig({
     include: ['lit', 'lit/decorators.js']
   },
   plugins: [
+    formBuilderMockPlugin(),
     litImportMapPlugin(),
     fixWindowsPathsPlugin(),
     sallaTransformPlugin(),
